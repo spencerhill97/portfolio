@@ -1,14 +1,12 @@
-import { useContext, createContext, useState, useRef } from "react";
+import { useContext, createContext, useState, useEffect } from "react";
 
 const GlobalContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
 
 const AppContext = ({ children }) => {
-  const navigateToSearchBar = (element) => {
-    element.current?.scrollIntoView({ block: "start" });
-  };
+  const [activeLink, setActiveLink] = useState("");
 
-  const value = { navigateToSearchBar };
+  const value = { setActiveLink, activeLink };
 
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
