@@ -129,11 +129,7 @@ table {
 }
 
 :root {
-  --main-bg: #f1f5f9;
-  --backup-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
-  --primary-50: #f5f5f5;
+  --primary-50: #eff6ff;
   --primary-100: #dbeafe;
   --primary-200: #bfdbfe;
   --primary-300: #93c5fd;
@@ -144,6 +140,11 @@ table {
   --primary-800: #1e40af;
   --primary-900: #1e3a8a;
   --primary-950: #172554;
+
+  --secondary-200: #bae6fd;
+  --secondary-300: #7dd3fc;
+  --secondary-400: #38bdf8;
+
   --black-font: rgb(60, 68, 63);
 }
 
@@ -157,13 +158,59 @@ table {
 .main-wrapper {
   width: 100%;
   height: 100%;
+  position: relative;
+  top: 25px;
 }
 
-.wrapper {
+.bg-overlay {
+  position: fixed;
+  height: 100vh;
   width: 100%;
-  display: grid;
-  place-items: center;
+  top: 0;
+  background-image: linear-gradient(
+    to right bottom,
+    #2563eb,
+    #008bff,
+    #00abff,
+    #00c7f4,
+    #00dfe6,
+    #00dfe6,
+    #00dfe6,
+    #00dfe6,
+    #00c7f4,
+    #00abff,
+    #008bff,
+    #2563eb
+  );
+  z-index: -1;
 }
+
+/*======================================== GLOBAL CLASSES ======================================== */
+
+.wrapper {
+  background-color: #fffafa;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--black-font);
+}
+
+.description {
+  font-weight: 300;
+  font-family: "Raleway", sans-serif;
+  color: var(--black-font);
+  letter-spacing: 0.02rem;
+}
+
+/*======================================== PAGES ======================================== */
+
+/*======================================== NAVBAR ======================================== */
 
 .nav-wrapper {
   width: 100%;
@@ -226,13 +273,19 @@ li:hover::before {
   transform: scaleX(1);
 }
 
+/*======================================== HOME PAGE ======================================== */
+
+.hero.wrapper {
+  border-radius: 10px 10px 0 0;
+}
+
 .home {
-  min-height: 100vh;
+  /* subtracting the padding from main wrapper */
+  min-height: calc(100vh - 25px);
   width: 100%;
-  max-width: 1000px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 50px;
 }
 
@@ -259,13 +312,13 @@ li:hover::before {
 
 .intro,
 .occupation {
-  font-weight: 500;
+  font-weight: 300;
   font-size: 1.5rem;
   color: rgb(60, 68, 63);
 }
 
 .span {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 1.75rem !important;
   margin-left: 5px;
   color: black;
@@ -275,7 +328,7 @@ li:hover::before {
   font-size: max(2rem, 3rem);
   letter-spacing: 0.02rem;
   font-weight: 800;
-  color: var(--primary-800);
+  color: var(--primary-700);
 }
 
 .btn-container {
@@ -322,25 +375,25 @@ li:hover::before {
 }
 
 .hire.btn {
-  background-color: var(--primary-800);
-  border: var(--primary-900);
+  background-color: var(--primary-700);
+  border: var(--primary-600);
   color: white;
 }
 
 .portfolio.btn {
   background-color: white;
-  border: var(--primary-300);
+  border: var(--primary-50);
   color: black;
 }
 
 .hire.btn:hover {
-  background-color: var(--primary-700);
-  border: var(--primary-500);
+  background-color: var(--primary-500);
+  border: var(--primary-600);
 }
 
 .portfolio.btn:hover {
   background-color: var(--primary-200);
-  border: var(--primary-300);
+  border: var(--primary-200);
 }
 
 .hire.btn:active,
@@ -350,26 +403,182 @@ li:hover::before {
 
 figure {
   height: 300px;
-  position: relative;
 }
 
 .portrait {
-  object-fit: contain;
+  object-fit: cover;
   height: 100%;
   width: 100%;
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  position: relative;
+  border-radius: 8px;
 }
 
-#about,
-#contact,
-#projects {
-  min-height: 100vh;
+/*======================================== ABOUT PAGE ======================================== */
+.about {
   width: 100%;
-  background-color: var(--main-bg);
-  color: black;
-  display: grid;
-  place-items: center;
-  border: 1px solid black;
+  min-height: 100vh;
+  border-top: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 50px;
+  padding-right: 50px;
+  padding-left: 50px;
 }
+
+.about article > h2.page-title {
+  text-align: end;
+}
+
+.about > article:first-of-type {
+  width: 30%;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.about-img-container {
+  position: relative;
+}
+
+.border-design {
+  background-image: linear-gradient(
+    to right top,
+    #38bdf8,
+    #00a5f7,
+    #008bf3,
+    #006ee9,
+    #1d4ed8
+  );
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  top: 15px;
+  left: 15px;
+  border-radius: 8px;
+}
+
+.about > article:last-of-type {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.about-description {
+  font-weight: 100;
+  font-family: "Raleway", sans-serif;
+  color: var(--black-font);
+  letter-spacing: 0.04rem;
+  line-height: 1.05rem;
+}
+
+.first-word {
+  color: var(--primary-700);
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.emphasis {
+  color: var(--primary-700);
+  font-weight: 700;
+}
+
+.hashtag {
+  font-size: 3rem;
+  background-color: var(--primary-500);
+  background-image: linear-gradient(
+    45deg,
+    var(--primary-500),
+    var(--primary-800)
+  );
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.skills-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* selecting skills icons */
+.skills-container i {
+  font-size: 2.25rem;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social {
+  font-size: 2rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+i.js {
+  background-color: black;
+  border: none;
+}
+
+/*======================================== PROJECTS PAGE ======================================== */
+
+.projects {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid black;
+}
+
+.projects-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 30px;
+}
+
+.projects div {
+  width: 200px;
+  height: 250px;
+}
+
+.card {
+  width: 100%;
+  border: 1px solid light grey;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card h3 {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.card figure {
+  width: 100%;
+  height: 100%;
+}
+
+.project-pic {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/*======================================== CONTACT PAGE ======================================== */

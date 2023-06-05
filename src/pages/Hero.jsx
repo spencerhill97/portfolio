@@ -19,8 +19,9 @@ const Hero = () => {
 
   useEffect(() => {
     const typed = new Typed(".span", {
-      strings: ["Web Developer"],
+      strings: ["we", "Web Devele", "Web Developer"],
       typeSpeed: 150,
+      loop: true,
     });
 
     return () => {
