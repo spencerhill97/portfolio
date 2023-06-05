@@ -13,11 +13,26 @@ const Contact = () => {
   }, [inView]);
 
   return (
-    <div className="contact wrapper">
-      <section ref={ref} id="contact" className="contact">
-        <h2>Contact Me</h2>
-      </section>
-    </div>
+    <section ref={ref} id="contact" className="contact wrapper">
+      <article className="map">hello</article>
+      <article className="form-div">
+        <h2 className="page-title">
+          <span className="tag">&lt;form&gt;</span>
+          Contact Me
+          <span className="tag">&lt;/form&gt;</span>
+        </h2>
+        <form>
+          <fieldset>
+            <input type="name" placeholder="Name*" />
+            <input type="email" placeholder="Email*" />
+            <input type="text" placeholder="Your message here*" />
+            <button type="submit" className="btn">
+              send message
+            </button>
+          </fieldset>
+        </form>
+      </article>
+    </section>
   );
 };
 

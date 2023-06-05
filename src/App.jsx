@@ -8,6 +8,7 @@ function App() {
   return (
     <div className="main-wrapper">
       <Hero />
+      <Navbar />
       <About />
       <Projects />
       <Contact />

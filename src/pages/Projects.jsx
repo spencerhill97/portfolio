@@ -16,15 +16,17 @@ const Projects = () => {
   }, [inView]);
 
   return (
-    <div className="projects wrapper">
-      {/* <section ref={ref} id="projects" className="projects wrapper">
-        <h2 className="page-title">Projects</h2>
-        <article className="projects-list">
-          {projects.map((project) => {
-            const { id, name, image, description, github, website } = project;
-            return (
-              <div key={id} className="project">
-                <div className="card">
+    <section ref={ref} id="projects" className="projects wrapper">
+      <h2 className="page-title">
+        <span className="tag">&lt;h2&gt;</span>Projects
+        <span className="tag">&lt;/h2&gt;</span>
+      </h2>
+      <article className="projects-list">
+        {projects.map((project) => {
+          const { id, name, image, description, github, website } = project;
+          return (
+            <div key={id} className="project">
+              {/* <div className="card">
                   <figure>
                     <img src={image} className="project-pic" alt="" />
                   </figure>
@@ -38,13 +40,12 @@ const Projects = () => {
                   <a href={website}>
                     <TbWorldWww />
                   </a>
-                </div>
-              </div>
-            );
-          })}
-        </article>
-      </section> */}
-    </div>
+                </div> */}
+            </div>
+          );
+        })}
+      </article>
+    </section>
   );
 };
 

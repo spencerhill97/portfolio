@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar";
 import { useEffect, useRef } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import { useInView } from "react-intersection-observer";
@@ -31,37 +32,49 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="hero wrapper">
-      <section ref={ref} id="home" className="home">
-        <article>
-          <div className="bio">
-            <p className="intro">
-              Hello <img src={wave} className="hand" alt="wave" />, I'm
-            </p>
-            <h1 className="name">Spencer Hill</h1>
-            <h3 className="occupation">
-              a Chicago based <span className="span" ref={textRef}></span>
-            </h3>
-          </div>
-          <div className="btn-container">
-            <form className="contact-form" action="#contact">
-              <button type="submit" className="hire btn">
-                hire me
-              </button>
-              <i className="fa-solid fa-arrow-up fa-bounce arrow hidden"></i>
-            </form>
-            <form className="portfolio-form" action="#projects">
-              <button type="submit" className="portfolio btn">
-                portfolio
-              </button>
-            </form>
-          </div>
-        </article>
+    <section ref={ref} id="home" className="home wrapper">
+      <Navbar />
+      <article>
+        <div className="bio">
+          <p className="intro">
+            Hello <img src={wave} className="hand" alt="wave" />, I'm
+          </p>
+          <h1 className="name">Spencer Hill</h1>
+          <h3 className="occupation">
+            a Chicago based <span className="span" ref={textRef}></span>
+          </h3>
+        </div>
+        <div className="btn-container">
+          <form className="contact-form" action="#contact">
+            <button type="submit" className="hire btn">
+              hire me
+            </button>
+            <i className="fa-solid fa-arrow-up fa-bounce arrow hidden"></i>
+          </form>
+          <form className="portfolio-form" action="#projects">
+            <button type="submit" className="portfolio btn">
+              portfolio
+            </button>
+          </form>
+        </div>
+      </article>
+      <article>
+        <div className="social-links">
+          <a
+            className="social linkedin"
+            href="https://www.linkedin.com/in/-spencer-hill-/"
+          >
+            <i className="devicon-linkedin-plain colored"></i>
+          </a>
+          <a className="social github" href="https://github.com/spencerhill97">
+            <i className="devicon-github-original colored"></i>
+          </a>
+        </div>
         <figure>
           <img src={portrait} className="portrait" alt="portrait" />
         </figure>
-      </section>
-    </div>
+      </article>
+    </section>
   );
 };
 
