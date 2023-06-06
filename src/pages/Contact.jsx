@@ -23,9 +23,9 @@ const Contact = () => {
         </h2>
         <form>
           <fieldset>
-            <input type="name" placeholder="Name*" />
-            <input type="email" placeholder="Email*" />
-            <input type="text" placeholder="Your message here*" />
+            <input type="name" placeholder="Name*" required />
+            <input type="email" placeholder="Email*" required />
+            <input type="text" placeholder="Your message here*" required />
             <button type="submit" className="btn">
               send message
             </button>

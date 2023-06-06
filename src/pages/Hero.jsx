@@ -1,10 +1,10 @@
-import Navbar from "../components/Navbar";
 import { useEffect, useRef } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import { useInView } from "react-intersection-observer";
 import portrait from "../images/portrait.webp";
 import wave from "../images/handWave.webp";
 import Typed from "typed.js";
+import { skills } from "../data/Skills";
 
 const Hero = () => {
   const textRef = useRef(null);
@@ -20,8 +20,8 @@ const Hero = () => {
 
   useEffect(() => {
     const typed = new Typed(".span", {
-      strings: ["we", "Web Devele", "Web Developer"],
-      typeSpeed: 150,
+      strings: ["Frontend Developer", "Web Developer"],
+      typeSpeed: 175,
       loop: true,
     });
 
@@ -31,9 +31,12 @@ const Hero = () => {
     };
   }, []);
 
+  const removeName = (e) => {
+    e.target.setAttribute("style", "margin-right: 0");
+  };
+
   return (
     <section ref={ref} id="home" className="home wrapper">
-      <Navbar />
       <article>
         <div className="bio">
           <p className="intro">
@@ -41,7 +44,7 @@ const Hero = () => {
           </p>
           <h1 className="name">Spencer Hill</h1>
           <h3 className="occupation">
-            a Chicago based <span className="span" ref={textRef}></span>
+            a <span className="span" ref={textRef}></span>
           </h3>
         </div>
         <div className="btn-container">
@@ -56,6 +59,25 @@ const Hero = () => {
               portfolio
             </button>
           </form>
+        </div>
+        <div className="skills-container">
+          {skills.map((skill) => {
+            const { name, html } = skill;
+            const width = (16 * name.length) / 2 + 24;
+            return (
+              <div
+                key={name}
+                className="skill"
+                onMouseOut={removeName}
+                onMouseEnter={(e) => {
+                  e.target.setAttribute("style", `margin-right: ${width}px`);
+                }}
+              >
+                {html}
+                <p className="skill-name ">{name}</p>
+              </div>
+            );
+          })}
         </div>
       </article>
       <article>

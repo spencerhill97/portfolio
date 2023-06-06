@@ -1,11 +1,11 @@
 import { links } from "../data/links";
 import { useGlobalContext } from "../context/GlobalContext";
 
-const Navbar = () => {
+const Navbar = ({ className }) => {
   const { activeLink } = useGlobalContext();
 
   return (
-    <nav id="navbar" className="navbar">
+    <nav id="navbar" className={`navbar ${className}`}>
       <ul>
         {links.map((link) => {
           const { id, name, route } = link;

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useGlobalContext } from "../context/GlobalContext";
 import portrait from "../images/portraitAboutPage.webp";
-import { ImGithub } from "react-icons/im";
+import { skills } from "../data/Skills";
 
 const About = () => {
   const { ref, inView } = useInView({
@@ -13,6 +13,10 @@ const About = () => {
   useEffect(() => {
     inView && setActiveLink("about");
   }, [inView]);
+
+  const removeName = (e) => {
+    e.target.setAttribute("style", "margin-right: 0");
+  };
 
   return (
     <section ref={ref} id="about" className="about wrapper">
@@ -49,14 +53,23 @@ const About = () => {
           </p>
         </div>
         <div className="skills-container">
-          <i className="devicon-html5-plain-wordmark colored"></i>
-          <i className="devicon-css3-plain-wordmark colored"></i>
-          <i className="devicon-javascript-plain colored js"></i>
-          <i className="devicon-react-original colored"></i>
-          <i className="devicon-nodejs-plain colored"></i>
-          <i className="devicon-tailwindcss-plain colored"></i>
-          <i className="devicon-sass-original colored"></i>
-          <i className="devicon-mongodb-plain-wordmark colored"></i>
+          {skills.map((skill) => {
+            const { name, html } = skill;
+            const width = (16 * name.length) / 2 + 24;
+            return (
+              <div
+                key={name}
+                className="skill"
+                onMouseOut={removeName}
+                onMouseEnter={(e) => {
+                  e.target.setAttribute("style", `margin-right: ${width}px`);
+                }}
+              >
+                {html}
+                <p className="skill-name ">{name}</p>
+              </div>
+            );
+          })}
         </div>
       </article>
     </section>
