@@ -21,17 +21,6 @@ const About = () => {
   return (
     <section ref={ref} id="about" className="about wrapper">
       <article>
-        <div className="social-links">
-          <a
-            className="social linkedin"
-            href="https://www.linkedin.com/in/-spencer-hill-/"
-          >
-            <i className="devicon-linkedin-plain colored"></i>
-          </a>
-          <a className="social github" href="https://github.com/spencerhill97">
-            <i className="devicon-github-original colored"></i>
-          </a>
-        </div>
         <figure className="about-img-container">
           <span className="border-design"></span>
           <img className="about-pic portrait" src={portrait} alt="portrait" />
@@ -51,25 +40,6 @@ const About = () => {
             ab molestiae rerum <span className="emphasis">experienced</span> ut
             atque?
           </p>
-        </div>
-        <div className="skills-container">
-          {skills.map((skill) => {
-            const { name, html } = skill;
-            const width = (16 * name.length) / 2 + 24;
-            return (
-              <div
-                key={name}
-                className="skill"
-                onMouseOut={removeName}
-                onMouseEnter={(e) => {
-                  e.target.setAttribute("style", `margin-right: ${width}px`);
-                }}
-              >
-                {html}
-                <p className="skill-name ">{name}</p>
-              </div>
-            );
-          })}
         </div>
       </article>
     </section>
