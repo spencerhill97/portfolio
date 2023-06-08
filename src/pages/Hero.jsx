@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import { useInView } from "react-intersection-observer";
-import portrait from "../images/portrait.webp";
 import wave from "../images/handWave.webp";
 import Typed from "typed.js";
+import HeroPortrait from "../components/HeroPortrait";
 
 const Hero = () => {
   const textRef = useRef(null);
@@ -19,8 +19,8 @@ const Hero = () => {
 
   useEffect(() => {
     const typed = new Typed(".span", {
-      strings: ["Frontend Developer", "Web Developer"],
-      typeSpeed: 175,
+      strings: ["Frontend Developer.", "Web Developer."],
+      typeSpeed: 125,
       loop: true,
     });
 
@@ -34,20 +34,26 @@ const Hero = () => {
     <section ref={ref} id="home" className="home wrapper">
       <article>
         <div className="bio">
-          <p className="intro">
-            Hello <img src={wave} className="hand" alt="wave" />, I'm
-          </p>
+          <p className="intro">Hi! I Am</p>
           <h1 className="name">Spencer Hill</h1>
           <h3 className="occupation">
             a <span className="span" ref={textRef}></span>
           </h3>
         </div>
+        <div className="btn-container">
+          <form action="#contact">
+            <button type="submit" className="hire btn">
+              hire me
+            </button>
+          </form>
+          <form action="#projects">
+            <button type="submit" className="portfolio btn">
+              portfolio
+            </button>
+          </form>
+        </div>
       </article>
-      <article>
-        <figure>
-          <img src={portrait} className="portrait" alt="portrait" />
-        </figure>
-      </article>
+      <HeroPortrait />
     </section>
   );
 };

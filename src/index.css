@@ -197,7 +197,7 @@ table {
   min-height: 100%;
   height: 100vh;
   max-height: 800px;
-  width: 90%;
+  width: 100%;
   max-width: 1000px;
   margin: 0 auto;
   border: 1px solid lightgray;
@@ -211,7 +211,6 @@ table {
 }
 
 .description {
-  font-weight: 300;
   font-family: "Raleway", sans-serif;
   color: var(--black-font);
   letter-spacing: 0.02rem;
@@ -230,7 +229,7 @@ table {
   padding-right: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  width: 90%;
+  width: 100%;
   max-width: 1000px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-bottom: lightgray 1px solid;
@@ -279,6 +278,7 @@ li:not(.active):hover::before {
 
 li.active {
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
 .dot {
@@ -286,6 +286,7 @@ li.active {
   width: 7.5px;
   border-radius: 50%;
   background-color: var(--primary-600);
+  border: 1px solid var(--primary-700);
   position: absolute;
   top: 2px;
   right: 2px;
@@ -323,8 +324,17 @@ li.active {
   cursor: pointer;
 }
 
+.social:hover {
+  transform: scale(1.05);
+}
+
+.social:active {
+  transform: scale(0.98);
+}
+
 .social i {
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .github i {
@@ -342,8 +352,9 @@ li.active {
 }
 
 .logo svg {
-  font-size: 1.75rem;
+  font-size: 1.8rem;
   background-color: var(--primary-700);
+  border: 1px solid var(--primary-600);
   color: white;
   border-radius: 50%;
   padding: 5px;
@@ -359,29 +370,20 @@ li.active {
 .home {
   /* subtracting the padding from main wrapper */
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
   align-items: center;
-  justify-content: center;
-  gap: 100px;
+  justify-content: space-around;
 }
 
 .home article:first-of-type {
-  order: 2;
-  width: max-content;
-  display: grid;
-  place-items: center;
-}
-
-.home article:last-of-type {
-  order: 1;
   width: max-content;
   display: flex;
-  gap: 30px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 35px;
 }
 
 .bio {
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -396,8 +398,8 @@ li.active {
 
 .intro,
 .occupation {
-  font-weight: 300;
-  font-size: 1.5rem;
+  font-weight: 500;
+  font-size: 1.75rem;
   color: rgb(60, 68, 63);
 }
 
@@ -406,7 +408,7 @@ li.active {
 }
 
 .span {
-  font-weight: 500;
+  font-weight: 800;
   font-size: 1.75rem !important;
   margin-left: 5px;
   color: black;
@@ -414,16 +416,16 @@ li.active {
 
 .name {
   font-size: max(2.25rem, 3.25rem);
-  letter-spacing: 0.02rem;
   font-weight: 800;
   color: var(--primary-700);
+  font-family: "Poppins", sans-serif;
 }
 
 .btn-container {
+  width: 100%;
   display: flex;
-  align-items: flex-start;
+  justify-content: flex-start;
   gap: 15px;
-  margin-top: 25px;
 }
 
 .btn {
@@ -490,23 +492,27 @@ li.active {
   transform: translateY(2px);
 }
 
-figure {
-  height: 300px;
+.hero-img-container {
+  width: clamp(250px, 40%, 350px);
+  position: relative;
 }
 
 .portrait {
   object-fit: cover;
   height: 100%;
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
   position: relative;
   border-radius: 8px;
 }
 
-.skills-container {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+.blob {
+  position: absolute;
+  height: 125%;
+  object-fit: cover;
+  bottom: 0;
+  left: -25px;
+  padding-bottom: 10px;
 }
 
 /* selecting skills icons */
@@ -524,29 +530,62 @@ figure {
   overflow: hidden;
 }
 
-.skills:hover {
-  /*
-    About.jsx component has the hover effect!
-  */
-}
-
-.skill i {
-  font-size: 2.5rem;
-  display: inline-block;
-  transition: all 500ms;
-  background-color: #f8f4ff;
-  border: none;
+.bubble {
+  display: grid;
+  place-items: center;
   z-index: 1;
-  padding: 5px;
+  font-size: 2rem;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: white;
   border: 1px solid lightgray;
+  position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  cursor: pointer;
+  transition: all 500ms;
 }
 
-.skill-name {
-  position: absolute;
+.bubble:first-of-type {
+  left: 25px;
+  top: 10px;
+  animation: 4s move-up-and-down infinite;
+}
+
+.bubble:nth-of-type(2) {
+  top: -50px;
+  right: 75px;
+  animation: 5s move-up-and-down infinite;
+}
+
+.bubble:nth-of-type(3) {
   right: 0;
-  padding-right: 10px;
-  font-family: "Rubik", sans-serif;
-  color: var(--black-font);
+  top: 100px;
+  animation: 3s move-up-and-down infinite;
+}
+
+.bubble:nth-of-type(4) {
+  left: 0;
+  bottom: 75px;
+  animation: 3s move-up-and-down infinite;
+}
+
+.bubble:nth-of-type(5) {
+  bottom: 25px;
+  right: 100px;
+  animation: 3s move-up-and-down infinite;
+}
+
+@keyframes move-up-and-down {
+  from {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15%);
+  }
+  to {
+    transform: translateY(0%);
+  }
 }
 
 /*======================================== ABOUT PAGE ======================================== */
@@ -604,7 +643,7 @@ figure {
   font-family: "Raleway", sans-serif;
   color: var(--black-font);
   letter-spacing: 0.04rem;
-  line-height: 1.05rem;
+  line-height: 1.4rem;
 }
 
 .first-word {
@@ -613,7 +652,8 @@ figure {
   font-weight: 500;
 }
 
-.emphasis {
+/* for bold and colored text */
+.em {
   color: var(--primary-700);
   font-weight: 700;
 }
@@ -631,6 +671,17 @@ figure {
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
+}
+
+.interests-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.interests-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
 }
 
 /*======================================== PROJECTS PAGE ======================================== */
