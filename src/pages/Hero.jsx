@@ -34,19 +34,21 @@ const Hero = () => {
     <section ref={ref} id="home" className="home wrapper">
       <article>
         <div className="bio">
-          <p className="intro">Hi! I Am</p>
+          <p className="intro">
+            Hi! <img src={wave} className="wave" alt="hand wave" /> I Am
+          </p>
           <h1 className="name">Spencer Hill</h1>
           <h3 className="occupation">
             a <span className="span" ref={textRef}></span>
           </h3>
         </div>
         <div className="btn-container">
-          <form action="#contact">
+          <form id="contact-btn" action="#contact">
             <button type="submit" className="hire btn">
               hire me
             </button>
           </form>
-          <form action="#projects">
+          <form id="projects-btn" action="#projects">
             <button type="submit" className="portfolio btn">
               portfolio
             </button>

@@ -2,14 +2,18 @@ import { links } from "../data/links";
 import { useGlobalContext } from "../context/GlobalContext";
 import SocialLinks from "./SocialLinks";
 import Logo from "./Logo";
+import { useState } from "react";
+import { RiMenu3Fill } from "react-icons/ri";
+import { VscChromeClose } from "react-icons/vsc";
 
-const Navbar = ({ className }) => {
-  const { activeLink } = useGlobalContext();
+const Navbar = () => {
+  const { activeLink, screenSize, toggleNav, setToggleNav } =
+    useGlobalContext();
 
   return (
-    <nav id="navbar" className={`navbar ${className}`}>
-      <Logo />
-      <ul>
+    <nav id="navbar" className={`navbar`}>
+      {screenSize.dynamicWidth >= 850 && <Logo />}
+      <ul className={screenSize.dynamicWidth >= 850 ? "" : "hidden"}>
         {links.map((link) => {
           const { id, name, route } = link;
           return (
@@ -25,6 +29,15 @@ const Navbar = ({ className }) => {
         })}
       </ul>
       <SocialLinks />
+      {!(screenSize.dynamicWidth >= 850) && (
+        <div className="hamburger-menu">
+          {!toggleNav ? (
+            <RiMenu3Fill onClick={() => setToggleNav(!toggleNav)} />
+          ) : (
+            <VscChromeClose onClick={() => setToggleNav(!toggleNav)} />
+          )}
+        </div>
+      )}
     </nav>
   );
 };
