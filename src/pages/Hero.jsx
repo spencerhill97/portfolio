@@ -4,6 +4,8 @@ import { useInView } from "react-intersection-observer";
 import wave from "../images/handWave.webp";
 import Typed from "typed.js";
 import HeroPortrait from "../components/HeroPortrait";
+import { FaTelegramPlane } from "react-icons/fa";
+import { MdWork } from "react-icons/md";
 
 const Hero = () => {
   const textRef = useRef(null);
@@ -35,7 +37,7 @@ const Hero = () => {
       <article>
         <div className="bio">
           <p className="intro">
-            Hi! <img src={wave} className="wave" alt="hand wave" /> I Am
+            Hi! <img src={wave} className="wave" alt="hand wave" /> I am
           </p>
           <h1 className="name">Spencer Hill</h1>
           <h3 className="occupation">
@@ -45,12 +47,12 @@ const Hero = () => {
         <div className="btn-container">
           <form id="contact-btn" action="#contact">
             <button type="submit" className="hire btn">
-              hire me
+              hire me <FaTelegramPlane />
             </button>
           </form>
           <form id="projects-btn" action="#projects">
             <button type="submit" className="portfolio btn">
-              portfolio
+              my work <MdWork />
             </button>
           </form>
         </div>

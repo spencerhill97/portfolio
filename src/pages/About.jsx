@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useGlobalContext } from "../context/GlobalContext";
-import { GiBasketballBasket } from "react-icons/gi";
-import { TbBallVolleyball } from "react-icons/tb";
-import { GiFishing } from "react-icons/gi";
+import SkillsContainer from "../components/SkillsContainer";
 
 const About = () => {
   const { ref, inView } = useInView({
@@ -19,7 +17,7 @@ const About = () => {
     <section ref={ref} id="about" className="about wrapper">
       <article>
         <h2 className="page-title">
-          <span className="hashtag">#</span>About Me
+          <span className="blue-gradient-text hashtag">#</span>About Me
         </h2>
         <div>
           <p className="about-description">
@@ -32,15 +30,8 @@ const About = () => {
             much I can improve as a developer!
           </p>
         </div>
-        <div className="interests-container">
-          <h2 className="interests-title">When I'm not at my desk...</h2>
-          <div className="interests-list">
-            <GiBasketballBasket />
-            <TbBallVolleyball />
-            <GiFishing />
-          </div>
-        </div>
       </article>
+      <SkillsContainer />
     </section>
   );
 };

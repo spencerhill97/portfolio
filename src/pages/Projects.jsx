@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useGlobalContext } from "../context/GlobalContext";
 import { BsGithub } from "react-icons/bs";
-import { TbWorldWww } from "react-icons/tb";
+import { FaEye } from "react-icons/fa";
 import { projects } from "../data/projects";
 
 const Projects = () => {
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.1,
   });
+
   const { setActiveLink } = useGlobalContext();
 
   useEffect(() => {
@@ -17,7 +18,9 @@ const Projects = () => {
 
   return (
     <section ref={ref} id="projects" className="projects wrapper">
-      {/* <h2 className="page-title">Featured Projects</h2> */}
+      <h2 className="page-title">
+        Featured <span className="blue-gradient-text">Projects</span>
+      </h2>
       <article className="projects-list">
         {projects.map((project, index) => {
           const { id, name, image, description, github, website, skills } =
@@ -51,12 +54,7 @@ const Projects = () => {
                 <div className="content">
                   <h3 className="project-name">{name}</h3>
                   <p className="description">{description}</p>
-                  <div
-                    className="tech-and-code"
-                    style={{
-                      flexDirection: index % 2 === 0 ? "row" : "row-reverse",
-                    }}
-                  >
+                  <div className="tech-and-code">
                     <div className="tech-stack">
                       {skills.map((skill) => {
                         const { name, html } = skill;
@@ -68,7 +66,7 @@ const Projects = () => {
                         <BsGithub /> code
                       </a>
                       <a className="project-link" href={website}>
-                        <TbWorldWww /> demo
+                        <FaEye /> demo
                       </a>
                     </div>
                   </div>
