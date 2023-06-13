@@ -153,14 +153,13 @@ table {
 #root {
   height: 100%;
   width: 100%;
-  font-family: "Open Sans", var(--backup-fonts);
-  margin: 0 auto;
+  font-family: "Raleway", var(--backup-fonts);
 }
 
 .main-wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
 }
 
 .hidden {
@@ -195,8 +194,8 @@ table {
 .wrapper {
   background-color: #fffafa;
   min-height: 100vh;
+  max-width: 1200px;
   width: 100%;
-  max-width: 1000px;
   margin: 0 auto;
   border: 1px solid lightgray;
 }
@@ -228,7 +227,7 @@ table {
   padding-top: 5px;
   padding-bottom: 5px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-bottom: lightgray 1px solid;
   background-color: #ebebeb;
@@ -412,9 +411,9 @@ li.active {
 .home {
   /* subtracting the padding from main wrapper */
   display: flex;
-  flex-wrap: no-wrap;
   align-items: center;
   justify-content: space-around;
+  width: 100%;
 }
 
 .home article:first-of-type {
@@ -620,6 +619,16 @@ li.active {
   }
 }
 
+@media screen and (max-width: 851px) {
+  .home {
+    min-height: 100%;
+    flex-direction: column;
+    gap: 100px;
+    padding-top: 125px;
+    padding-bottom: 100px;
+  }
+}
+
 /*======================================== ABOUT PAGE ======================================== */
 .about {
   display: flex;
@@ -720,24 +729,26 @@ li.active {
 
 .projects-list {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   gap: 100px;
   padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .project {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 95%;
   height: 100%;
   gap: 50px;
 }
 
 .project figure {
-  width: 50%;
-  width: max(50%, 280px);
+  width: max(45%, 280px);
+  overflow: visible;
 }
 
 .project figure .project-pic {
@@ -745,11 +756,13 @@ li.active {
   height: 100%;
   width: 100%;
   border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .card {
   position: relative;
-  width: max(50%, 280px);
+  width: max(50%, 50ch);
 }
 
 .overlay-shadow {
@@ -777,7 +790,7 @@ li.active {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   z-index: 1;
-  transition: ease-in-out all 100ms;
+  transition: ease-in-out all 250ms;
 }
 
 .card:hover > .overlay-shadow.even {
@@ -802,10 +815,9 @@ li.active {
 }
 
 .content .description {
-  font-weight: 100;
+  font-weight: 300;
   line-height: 1.25rem;
   letter-spacing: 0.03rem;
-  width: 40ch;
   z-index: 1;
 }
 
@@ -843,7 +855,23 @@ li.active {
 }
 
 .project-link svg {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 851px) {
+  .project {
+    flex-direction: column !important;
+    gap: 20px;
+  }
+
+  .project figure {
+    width: 60%;
+  }
+
+  .card {
+    width: 80%;
+  }
 }
 
 /*======================================== CONTACT PAGE ======================================== */
@@ -931,4 +959,10 @@ button[type="submit"]:active {
 .contact,
 .projects {
   border-top: 1px solid black;
+}
+
+@media screen and (max-width: 851px) {
+  .wrapper {
+    width: 100%;
+  }
 }
