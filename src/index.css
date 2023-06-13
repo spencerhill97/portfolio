@@ -232,6 +232,10 @@ table {
   font-weight: 700;
 }
 
+i[class~="js"] {
+  background-color: black;
+}
+
 /*======================================== PAGES ======================================== */
 
 /*======================================== NAVBAR ======================================== */
@@ -720,19 +724,24 @@ li.active {
   display: grid;
   grid-template-rows: max-content 1fr;
   justify-items: center;
-  gap: 20px;
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 50px;
 }
 
-.technologies h3,
-.technologies h4 {
-  font-family: "Rubik", sans-serif;
+.technologies h3 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-family: "Poppins", sans-serif;
+  color: var(--black-font);
+  font-weight: 700;
 }
 
 .skills {
   display: grid;
-  grid-template-columns: repeat(auto-fit, clamp(225px, 30%, 350px));
+  grid-template-columns: repeat(auto-fit, clamp(275px, 30%, 350px));
   grid-auto-rows: repeat(auto-fit, 1fr);
-  width: 100%;
+  width: 95%;
   justify-items: center;
   justify-content: center;
   gap: 20px;
@@ -745,14 +754,26 @@ li.active {
   justify-content: center;
   align-content: flex-start;
   gap: 20px;
-  border: 1px solid black;
-  padding: 20px;
+  padding: 5px;
   height: min-content;
 }
 
 .category h4 {
   text-align: center;
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
   width: 100%;
+  color: var(--primary-700);
+}
+
+.tech {
+  padding: 5px;
+  background-color: #f0f8ff;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border: 1px solid lightgray;
 }
 
 .tech p {
@@ -760,7 +781,13 @@ li.active {
 }
 
 .tech i {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
+}
+
+@media screen and (max-width: 900px) {
+  .skills {
+    width: 95%;
+  }
 }
 
 /*======================================== PROJECTS PAGE ======================================== */
@@ -884,7 +911,9 @@ li.active {
 }
 
 .tech-stack span {
-  font-size: 2.5rem;
+  font-size: 2rem;
+  display: grid;
+  place-items: center;
 }
 
 .code-container {
@@ -906,7 +935,7 @@ li.active {
 }
 
 .project-link svg {
-  font-size: 2.5rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 

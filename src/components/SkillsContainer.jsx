@@ -18,8 +18,8 @@ const SkillsContainer = () => {
           })}
         </div>
         <div className="category">
-          <h4>Backend</h4>
-          {backend.map((skill) => {
+          <h4>Styling</h4>
+          {styling.map((skill) => {
             const { name, html } = skill;
             return (
               <div key={name} className="tech">
@@ -30,8 +30,8 @@ const SkillsContainer = () => {
           })}
         </div>
         <div className="category">
-          <h4>Styling</h4>
-          {styling.map((skill) => {
+          <h4>Backend</h4>
+          {backend.map((skill) => {
             const { name, html } = skill;
             return (
               <div key={name} className="tech">

@@ -10,7 +10,7 @@ export const projects = [
     skills: [
       {
         name: "JavaScript",
-        html: <i className="devicon-javascript-plain colored"></i>,
+        html: <i className="js devicon-javascript-plain colored"></i>,
       },
       {
         name: "react",
@@ -33,7 +33,7 @@ export const projects = [
     skills: [
       {
         name: "JavaScript",
-        html: <i className="devicon-javascript-plain colored"></i>,
+        html: <i className="js devicon-javascript-plain colored"></i>,
       },
       {
         name: "react",
@@ -56,7 +56,7 @@ export const projects = [
     skills: [
       {
         name: "JavaScript",
-        html: <i className="devicon-javascript-plain colored"></i>,
+        html: <i className="js devicon-javascript-plain colored"></i>,
       },
       {
         name: "react",
@@ -79,7 +79,7 @@ export const projects = [
     skills: [
       {
         name: "JavaScript",
-        html: <i className="devicon-javascript-plain colored"></i>,
+        html: <i className="js devicon-javascript-plain colored"></i>,
       },
       {
         name: "react",
@@ -102,7 +102,7 @@ export const projects = [
     skills: [
       {
         name: "JavaScript",
-        html: <i className="devicon-javascript-plain colored"></i>,
+        html: <i className="js devicon-javascript-plain colored"></i>,
       },
       {
         name: "react",
