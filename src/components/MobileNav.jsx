@@ -1,5 +1,6 @@
 import { useGlobalContext } from "../context/GlobalContext";
 import { links } from "../data/links";
+import SocialLinks from "./SocialLinks";
 
 const MobileNav = () => {
   const { activeLink, toggleNav } = useGlobalContext();
@@ -19,6 +20,7 @@ const MobileNav = () => {
           </li>
         );
       })}
+      <SocialLinks />
     </ul>
   );
 };

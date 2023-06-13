@@ -2,9 +2,9 @@ import { links } from "../data/links";
 import { useGlobalContext } from "../context/GlobalContext";
 import SocialLinks from "./SocialLinks";
 import Logo from "./Logo";
-import { useState } from "react";
 import { RiMenu3Fill } from "react-icons/ri";
 import { VscChromeClose } from "react-icons/vsc";
+import { TiHome } from "react-icons/ti";
 
 const Navbar = () => {
   const { activeLink, screenSize, toggleNav, setToggleNav } =
@@ -28,7 +28,12 @@ const Navbar = () => {
           );
         })}
       </ul>
-      <SocialLinks />
+      {screenSize.dynamicWidth >= 850 && <SocialLinks />}
+      {!(screenSize.dynamicWidth >= 850) && (
+        <a href="#home" className="home-icon">
+          <TiHome />
+        </a>
+      )}
       {!(screenSize.dynamicWidth >= 850) && (
         <div className="hamburger-menu">
           {!toggleNav ? (
