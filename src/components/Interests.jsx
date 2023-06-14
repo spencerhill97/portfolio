@@ -10,7 +10,7 @@ const Interests = () => {
   return (
     <article className="interests">
       <div className="hobbies container">
-        <h3>When I'm not programming...</h3>
+        <h3>When I'm not programming</h3>
         <ul className="hobbies-list">
           <li>
             <img className="hobby-icon" src={fetch} alt="fetch" />
@@ -36,7 +36,6 @@ const Interests = () => {
         </ul>
       </div>
       <iframe
-        className="spotify container"
         style={{ borderRadius: "12px" }}
         src="https://open.spotify.com/embed/playlist/37i9dQZF1F0sijgNaJdgit?utm_source=generator&theme=0"
         width="100%"

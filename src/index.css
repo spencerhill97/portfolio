@@ -680,14 +680,25 @@ ul.nav > li.active {
 
 /*======================================== ABOUT PAGE ======================================== */
 .about {
-  height: clamp(850px, 100vh, 1000px);
+  width: 100%;
+  min-height: 850px;
+  height: 100%;
   padding: 100px 20px 50px 20px;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, clamp(280px, 30%, 350px));
+  grid-template-rows: repeat(auto-fill, 100%);
+  justify-items: center;
+  gap: 30px; */
+}
+
+.about-grid {
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-areas:
-    "header header technologies"
-    "bio interests technologies";
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: min-content 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-rows: repeat(auto-fill, 1fr);
+  margin-top: 30px;
+  justify-content: center;
   justify-items: center;
   gap: 30px;
 }
@@ -703,7 +714,7 @@ ul.nav > li.active {
 .rundown,
 .hobbies,
 .technologies {
-  padding: 10px 20px;
+  padding: 10px 10px;
 }
 
 .rundown:hover,
@@ -715,25 +726,23 @@ ul.nav > li.active {
 .about > .page-title {
   text-align: center;
   font-size: clamp(3rem, 6vw, 5rem);
-  grid-area: header;
 }
 
 .rundown {
-  grid-area: bio;
   width: 100%;
-  max-width: 70ch;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 .rundown > h3,
-.hobbies > h3 {
+.hobbies > h3,
+.technologies > h3 {
   font-size: 2rem;
   font-family: "Poppins";
   font-weight: 700;
   color: var(--primary-700);
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .rundown > p {
@@ -790,17 +799,20 @@ ul.nav > li.active {
   height: 100%;
 }
 
+iframe {
+  min-height: 400px;
+}
+
 .technologies {
+  width: 100%;
   display: grid;
   grid-template-rows: max-content 1fr;
   justify-items: center;
-  gap: 15px;
   margin: 0 auto;
-  grid-area: technologies;
 }
 
 .technologies h3 {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2rem, 2.5vw, 3rem);
   font-family: "Poppins", sans-serif;
   color: var(--primary-700);
   font-weight: 700;
