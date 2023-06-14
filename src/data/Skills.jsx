@@ -66,6 +66,17 @@ export const backend = [
   },
   {
     name: "MongoDB",
-    html: <i className="devicon-mongodb-plain colored"></i>,
+    html: <i className="devicon-mongodb-plain-wordmark colored"></i>,
+  },
+];
+
+export const sourceControl = [
+  {
+    name: "Git",
+    html: <i className="devicon-git-plain-wordmark colored"></i>,
+  },
+  {
+    name: "GitHub",
+    html: <i className="devicon-github-original colored"></i>,
   },
 ];

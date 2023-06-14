@@ -6,7 +6,7 @@ const MobileNav = () => {
   const { activeLink, toggleNav } = useGlobalContext();
 
   return (
-    <ul className={`${!toggleNav && "out-of-sight"} toggle`}>
+    <ul className={`${!toggleNav && "out-of-sight"} nav toggle`}>
       {links.map((link) => {
         const { id, name, route } = link;
         return (

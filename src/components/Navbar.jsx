@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav id="navbar" className={`navbar`}>
       {screenSize.dynamicWidth >= 850 && <Logo />}
-      <ul className={screenSize.dynamicWidth >= 850 ? "" : "hidden"}>
+      <ul className={screenSize.dynamicWidth >= 850 ? "nav" : "nav hidden"}>
         {links.map((link) => {
           const { id, name, route } = link;
           return (
